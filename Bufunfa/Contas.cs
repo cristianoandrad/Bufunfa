@@ -77,6 +77,22 @@ namespace Bufunfa
 
         }
 
+        public void transferencia(decimal valor, Contas conta)
+        {
+            if(this.saldo >= valor)
+            {
+                this.saldo = this.saldo - valor;
+                Console.WriteLine($"Transferencia efetuada com sucesso no valor de R$ {valor}, " +
+                    $"\nConta Origem nº: {this.nrConta} \nConta destino nº: {conta.nrConta} " + 
+                    $"\nSaldo da conta {this.nrConta} nº é R$ {this.saldo}.");
+                
+            }
+            else
+            {
+                Console.WriteLine($"Saldo insuficiente para transfência no valor de R$ {valor}, seu saldo atual é R$ {this.saldo}.");
+            }
+        }
+
         public abstract void saque(decimal valor);
     }
 }
