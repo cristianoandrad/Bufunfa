@@ -8,7 +8,7 @@ namespace Bufunfa
 {
     class ContaCorrente : Contas
     {
-        private decimal cpmf = 0.38m;
+        private decimal cpmf = 0.20m; // iformar aliquota do CPMF
         public ContaCorrente(int nrConta, Pessoa responsavel) : base(nrConta, responsavel)
         {
 
@@ -18,7 +18,7 @@ namespace Bufunfa
         {
             if (this.saldo >= valor)
             {
-                decimal tarifa = this.saldo * this.cpmf;
+                decimal tarifa = (this.saldo * this.cpmf) / 100;
                 this.saldo = this.saldo - valor - tarifa;
                 Console.WriteLine($"Saque efetuado com sucesso no valor de R$ {valor}, seu saldo atual é R$ {this.saldo}.");
                 Console.WriteLine($"Foi cobrado a tarifa no valor de R$ {tarifa} refente ao saque.");

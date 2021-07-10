@@ -8,7 +8,7 @@ namespace Bufunfa
 {
     class ContaPoupanca : Contas
     {
-        private decimal juros = 0.25m;
+        private decimal juros = 0.25m; // Informar percentual de juros
         public ContaPoupanca(int nrConta, Pessoa responsavel) : base(nrConta, responsavel)
         {
 
@@ -28,9 +28,9 @@ namespace Bufunfa
 
         public void rendimentos()
         {
-            decimal rendimentos = this.saldo * this.juros;
+            decimal rendimentos = (this.saldo * this.juros) / 100;
             this.saldo = this.saldo + rendimentos;
-            Console.WriteLine($"Rendimento no valor de R$ {rendimentos} realizado com sucesso,seu saldo atual é R$ {this.saldo}.");
+            Console.WriteLine($"Rendimento no valor de R$ {rendimentos} realizado com sucesso, seu saldo atual é R$ {this.saldo}.");
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Bufunfa
 
         public void depositar(decimal valor)
         {
-            this.saldo = saldo + valor;
+            this.saldo = this.saldo + valor;
             Console.WriteLine($"Deposito no valor de R$ {valor} realizado com sucesso, seu saldo atual é R$ {this.saldo}.");
 
         }
