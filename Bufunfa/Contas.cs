@@ -43,7 +43,7 @@ namespace Bufunfa
         }
                 
 
-        public void info()
+        public void extratoResumido()
         {
             Console.WriteLine("-------------------------------------------------------------------------------");
             Console.WriteLine($"Dados da conta: " +

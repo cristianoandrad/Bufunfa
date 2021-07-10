@@ -10,7 +10,7 @@ namespace Bufunfa
             Pessoa p2 = new Pessoa(45467879778, "Igor Aguiar");
 
             ContaCorrente c1 = new ContaCorrente(001,1121223, p1);
-            c1.info();
+            c1.extratoResumido();
             c1.depositar(250);
             c1.saque(50);
             c1.saque(90);
@@ -18,7 +18,7 @@ namespace Bufunfa
             
            
             ContaPoupanca c2 = new ContaPoupanca(002,712177, p2);
-            c2.info();
+            c2.extratoResumido();
             c2.depositar(300);
             c2.saque(40);
             c2.rendimentos();
