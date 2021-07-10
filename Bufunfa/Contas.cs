@@ -8,16 +8,21 @@ namespace Bufunfa
 {
     abstract class Contas
     {
-        private int nrConta { get; set; }
+        public int nrAgencia { get; set; }
+        private int nrConta { get; set; }       
+
         private Pessoa responsavel { get; set; }
         protected decimal saldo { get; set; }
+        private bool aberta { get; set; }
 
                 
 
-        public Contas(int nrConta, Pessoa responsavel)
+        public Contas(int nrAgencia, int nrConta, Pessoa responsavel)
         {
+            this.nrAgencia = nrAgencia;
             this.nrConta = nrConta;
             this.responsavel = responsavel;
+            this.aberta = true;
             this.saldo = 0;
         }
 
@@ -40,11 +45,13 @@ namespace Bufunfa
 
         public void info()
         {
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine($"Dados da conta \nNumero da Conta {this.nrConta} " +
-                $"\nResponsável {this.responsavel.getNome()} CPF/CNPJ {this.responsavel.getCpfCnpj()}" +
-                $" \nSaldo Atual R$ {this.saldo}  ");
-            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine($"Dados da conta: " +
+                $"\nAgencia: {this.nrAgencia}" + 
+                $"\nNumero da Conta: {this.nrConta} " +
+                $"\nResponsável: {this.responsavel.getNome()}, CPF/CNPJ: {this.responsavel.getCpfCnpj()}" +
+                $"\nSaldo Atual: R$ {this.saldo}  ");
+            Console.WriteLine("-------------------------------------------------------------------------------");
 
         }
 
@@ -52,6 +59,21 @@ namespace Bufunfa
         {
             this.saldo = this.saldo + valor;
             Console.WriteLine($"Deposito no valor de R$ {valor} realizado com sucesso, seu saldo atual é R$ {this.saldo}.");
+
+        }
+
+        public void fecharConta()
+        {
+            if (saldo == 0m)
+            {
+                this.aberta = false;
+                Console.WriteLine("Conta fechada com sucesso.");
+            }
+            else
+            {
+                Console.WriteLine($"Operação de fechamento de conta não realizado, " +
+                    $"conta com saldo de R$ {this.saldo}");
+            }
 
         }
 

@@ -9,7 +9,7 @@ namespace Bufunfa
     class ContaPoupanca : Contas
     {
         private decimal juros = 0.25m; // Informar percentual de juros
-        public ContaPoupanca(int nrConta, Pessoa responsavel) : base(nrConta, responsavel)
+        public ContaPoupanca(int nrAgencia, int nrConta, Pessoa responsavel) : base(nrAgencia,nrConta, responsavel)
         {
 
         }

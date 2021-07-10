@@ -9,7 +9,7 @@ namespace Bufunfa
     class ContaCorrente : Contas
     {
         private decimal cpmf = 0.20m; // iformar aliquota do CPMF
-        public ContaCorrente(int nrConta, Pessoa responsavel) : base(nrConta, responsavel)
+        public ContaCorrente(int nrAgencia, int nrConta, Pessoa responsavel) : base(nrAgencia, nrConta, responsavel)
         {
 
         }
