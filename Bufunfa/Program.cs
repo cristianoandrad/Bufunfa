@@ -14,8 +14,7 @@ namespace Bufunfa
             c1.depositar(100);
             c1.saque(50);
             c1.saque(90);
-            
-            
+                      
             
            
             ContaPoupanca c2 = new ContaPoupanca(777, p2);
@@ -24,8 +23,6 @@ namespace Bufunfa
             c2.saque(40);
             c2.rendimentos();
             
-
-
 
         }
     }
