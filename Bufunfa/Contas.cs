@@ -9,8 +9,7 @@ namespace Bufunfa
     abstract class Contas
     {
         public int nrAgencia { get; set; }
-        private int nrConta { get; set; }       
-
+        private int nrConta { get; set; }
         private Pessoa responsavel { get; set; }
         protected decimal saldo { get; set; }
         private bool aberta { get; set; }
@@ -26,7 +25,12 @@ namespace Bufunfa
             this.saldo = 0;
         }
 
-        public decimal getNrConta()
+        public int getNrAgencia()
+        {
+            return this.nrAgencia;
+        }
+
+        public int getNrConta()
         {
             return this.nrConta;
         }
@@ -36,7 +40,13 @@ namespace Bufunfa
             return this.responsavel;
 
         }
-       
+
+        public bool getAberta()
+        {
+            return this.aberta;
+        }
+
+
         public decimal getSaldo()
         {
             return this.saldo;
@@ -57,8 +67,15 @@ namespace Bufunfa
 
         public void depositar(decimal valor)
         {
-            this.saldo = this.saldo + valor;
-            Console.WriteLine($"Deposito no valor de R$ {valor} realizado com sucesso, seu saldo atual é R$ {this.saldo}.");
+            if (this.aberta == true)
+            {
+                this.saldo = this.saldo + valor;
+                Console.WriteLine($"Deposito no valor de R$ {valor} realizado com sucesso, seu saldo atual é R$ {this.saldo}.");
+            }
+            else
+            {
+                Console.WriteLine("Deposito não realizado, conta encerrada.");
+            }
 
         }
 
@@ -82,10 +99,12 @@ namespace Bufunfa
             if(this.saldo >= valor)
             {
                 this.saldo = this.saldo - valor;
+                Console.WriteLine("-------------Comprovante de Transferencia-------------");
                 Console.WriteLine($"Transferencia efetuada com sucesso no valor de R$ {valor}, " +
                     $"\nConta Origem nº: {this.nrConta} \nConta destino nº: {conta.nrConta} " + 
-                    $"\nSaldo da conta {this.nrConta} nº é R$ {this.saldo}.");
-                
+                    $"\nSaldo da conta nº {this.nrConta} é R$ {this.saldo}");
+                Console.WriteLine("------------------------------------------------------");
+
             }
             else
             {
